@@ -4,7 +4,7 @@ class ProductsController {
   async index(request: Request, response: Response) {}
 
   async create(request: Request, response: Response) {
-    return response.json({message: request.user?.id})
+    return response.json({message: request.user?.role})
   }
 }
 

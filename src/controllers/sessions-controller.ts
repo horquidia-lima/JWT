@@ -13,6 +13,7 @@ class SessionsController {
       id:"1",
       username: "quida",
       password: "123456",
+      rule: "customer"
     }
 
     if(username !== fakeUser.username || password !== fakeUser.password){
@@ -21,7 +22,7 @@ class SessionsController {
 
     const {secret, expiresIn} = authConfig.jwt
 
-    const token = sign({},secret, {
+    const token = sign({role: fakeUser.rule},secret, {
       expiresIn,
       subject : String(fakeUser.id),
     })
